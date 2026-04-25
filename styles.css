@@ -3173,44 +3173,6 @@ a.atalho-menu {
 
 }
 
-/* Badges nos produtos */
-.listagem-item .imagem-produto:after {
-   content: "";
-   display: block;
-   z-index: 1;
-   position: absolute;
-   bottom: 0;
-   width: 100%;
-   text-align: center;
-   height: 38px;
-   background: rgba(255, 255, 255, 0.7);
-   backdrop-filter: blur(5px);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-size: 14px;
-   text-transform: uppercase;
-   color: var(--black);
-   font-weight: 600;
-}
-
-.listagem-item.prod-cat-24033243 .imagem-produto:after {
-   content: "Gift Cards";  
-}
-
-.listagem-item.prod-cat-24033240 .imagem-produto:after {
-  content: "PlayStation";
-}
-
-
-.listagem-item.prod-cat-24033241 .imagem-produto:after {
-  content: "Xbox";
-}
-
-.listagem-item.prod-cat-24033242 .imagem-produto:after {
-  content: "Nintendo";
-}
-
 /* FAQ */
 
 .faq-container {
