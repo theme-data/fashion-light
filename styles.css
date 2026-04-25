@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 
 :root {
    /* CABEÇALHO */
@@ -20,7 +21,7 @@
 
 body {
    background-color: var(--bg-store-color);
-   font-family: "Chakra Petch", sans-serif;
+   font-family: "Plus Jakarta Sans", sans-serif;
    background: var(--white);
 }
 
@@ -36,7 +37,7 @@ h4,
 h5,
 h6,
 .titulo {
-   font-family: "Chakra Petch", sans-serif;
+   font-family: "Plus Jakarta Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   color: var(--black);
@@ -579,7 +580,7 @@ span.bn-t-title {
 
 .listagem .acoes-produto .botao-comprar i:before {
    content: "";
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/add_shopping_cart.svg) center no-repeat;
+   background: url(https://cdn.awsli.com.br/2942/2942228/arquivos/add_shopping_cart.svg) center no-repeat;
    background-size: 100%;
 }
 
