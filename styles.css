@@ -3603,23 +3603,31 @@ a.pixel-logo:before {
    width: 100%;
    height: 100%;
    background: rgba(0,0,0,0.6);
+   align-items: center;
+   justify-content: center;
 }
 
 .modal-content {
    background: #fff;
-   margin: 5% auto;
-   padding: 20px;
+   margin: auto;
+   padding: 40px;
    width: 80%;
    max-width: 800px;
-   border-radius: 10px;
+   border-radius: 0;
    position: relative;
+   position: absolute;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   top: 0;
+   height: fit-content;
 }
 
 .close-modal {
    position: absolute;
-   right: 15px;
-   top: 10px;
-   font-size: 44px;
+   right: 25px;
+   top: 20px;
+   font-size: 40px;
    cursor: pointer;
 }
 
@@ -3646,7 +3654,7 @@ a.pixel-logo:before {
 }
 
 #modal-medidas h2 {
-   font-size: 18px;
-   font-weight: 600;
+   font-size: 24.5px;
+   font-weight: 700;
    color: #000;
 }
