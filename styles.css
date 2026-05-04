@@ -6,6 +6,10 @@
    --fundo-cabecalho: #1E1E1E;
    --texto-cabecalho: #FFFFFF;
 
+   /* BOTÕES */
+   --botao-comprar-produto: #B9F501;
+   --cor-botao-comprar-produto: #1E1E1E;
+
    /* PAGINA */
    --text-color: #FFFFFF;
    --brand-color: #B9F501;
@@ -3574,4 +3578,75 @@ a.pixel-logo:before {
 #rodape > div:last-child .row-fluid > div:last-child {
    display: flex;
    flex-direction: column;
+}
+
+/* GUIA DE MEDIDAS */
+
+.btn-medidas {
+   display: flex;
+   margin: 0 0 20px;
+   padding: 0 !important;
+   background: transparent;
+   color: #000;
+   border-radius: 0px;
+   cursor: pointer;
+   text-decoration: underline;
+   font-size: 15px;
+}
+
+.modal-medidas {
+   display: none;
+   position: fixed;
+   z-index: 9999999;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+   background: #fff;
+   margin: 5% auto;
+   padding: 20px;
+   width: 80%;
+   max-width: 800px;
+   border-radius: 10px;
+   position: relative;
+}
+
+.close-modal {
+   position: absolute;
+   right: 15px;
+   top: 10px;
+   font-size: 44px;
+   cursor: pointer;
+}
+
+.tabela-medidas {
+   width: 100%;
+   border-collapse: collapse;
+   margin-top: 20px;
+}
+
+.tabela-medidas th {
+   background: #000;
+   color: #fff;
+       padding: 6px;
+   font-size: 11px;
+}
+
+.tabela-medidas td {
+   padding: 6px;
+   text-align: center;
+}
+
+.linha-par {
+   background: #f2f2f2;
+}
+
+#modal-medidas h2 {
+   font-size: 18px;
+   font-weight: 600;
+   color: #000;
 }

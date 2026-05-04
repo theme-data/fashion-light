@@ -768,5 +768,89 @@ if (CONFIG.bannerVitrine) {
       .appendTo('head');
   }
 
+  const MEDIDAS = CONFIG.guiaMedidas || {};
+
+  function initTabelaMedidas() {
+
+      if ($("#btn-tabela-medidas").length) return;
+
+      if ($(".produto .principal .atributos").length) {
+
+          $(".produto .principal .atributos").before(`
+              <button id="btn-tabela-medidas" class="btn-medidas">
+                  ${MEDIDAS.botaoTexto || "Guia de medidas"}
+              </button>
+          `);
+
+          if (!$("#modal-medidas").length) {
+              $("body").append(`
+                  <div id="modal-medidas" class="modal-medidas">
+                      <div class="modal-content">
+                          <span class="close-modal">&times;</span>
+                          <h2>${MEDIDAS.titulo || "Tabela de Medidas"}</h2>
+
+                          <table class="tabela-medidas">
+                              <thead>
+                                  <tr>
+                                      ${gerarCabecalho()}
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  ${gerarTabela()}
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              `);
+          }
+      }
+  }
+
+  function gerarCabecalho() {
+      const colunas = MEDIDAS.colunas || [];
+      return colunas.map(col => `<th>${col}</th>`).join("");
+  }
+
+  function gerarTabela() {
+      const dados = MEDIDAS.dados || [];
+
+      let html = "";
+
+      dados.forEach((linha, index) => {
+          html += `
+              <tr class="${index % 2 === 0 ? 'linha-par' : ''}">
+                  ${linha.map(item => `<td>${item}</td>`).join("")}
+              </tr>
+          `;
+      });
+
+      return html;
+  }
+
+  initTabelaMedidas();
+
+  const observer = new MutationObserver(function () {
+      initTabelaMedidas();
+  });
+
+  observer.observe(document.body, {
+      childList: true,
+      subtree: true
+  });
+
+  $(document).on("click", "#btn-tabela-medidas", function () {
+      $("#modal-medidas").fadeIn();
+  });
+
+  $(document).on("click", ".close-modal", function () {
+      $("#modal-medidas").fadeOut();
+  });
+
+  $(window).on("click", function (e) {
+      if ($(e.target).is("#modal-medidas")) {
+          $("#modal-medidas").fadeOut();
+      }
+  });
+
   
 });
