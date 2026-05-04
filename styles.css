@@ -3062,7 +3062,7 @@ a.atalho-menu {
 
 .links-rodape ul,
 .atendimento-rodape ul,
-.visible-phone ul {
+#rodape .visible-phone ul {
  display: none;
 }
 
