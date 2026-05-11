@@ -117,9 +117,6 @@ $(document).ready(function(){
           <h2 class="c-slide-title">
               Navegue por categoria
           </h2>
-          <p class="c-slide-subtitle">
-              Escolha abaixo uma categoria para explorar nossos jogos
-          </p>
       </div>
       <ul class="c-slide">
           ${categoriaLis}
