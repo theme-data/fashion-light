@@ -1,17 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 
 :root {
-   --bg-color: #1E1E1E;
+   /* CABEÇALHO */
+   --fundo-cabecalho: #1E1E1E;
+   --texto-cabecalho: #FFFFFF;
+
+   /* BOTÕES */
+   --botao-comprar-produto: #B9F501;
+   --cor-botao-comprar-produto: #1E1E1E;
+
+   /* PAGINA */
    --text-color: #FFFFFF;
    --brand-color: #B9F501;
    --black: #1E1E1E;
    --white: #FFFFFF;
    --grey: #4C4C4C;
+   --bg-color: #1E1E1E;
+
+   /* RODAPE */
+   --fundo-rodape: #1E1E1E;
+   --texto-rodape: #FFFFFF;
 }
 
 body {
    background-color: var(--bg-store-color);
-   font-family: "Chakra Petch", sans-serif;
+   font-family: "Plus Jakarta Sans", sans-serif;
    background: var(--white);
 }
 
@@ -27,7 +41,7 @@ h4,
 h5,
 h6,
 .titulo {
-   font-family: "Chakra Petch", sans-serif;
+   font-family: "Plus Jakarta Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   color: var(--black);
@@ -52,6 +66,7 @@ html {
 .conteiner {
    max-width: 1500px;
    padding: 0 16px;
+   box-sizing: border-box;
 }
 
 /* Botão */
@@ -68,6 +83,7 @@ html {
    align-items: center;
    font-size: 16px;
    justify-content: center;
+   border-radius: 6px;
 }
 
 /* Input */
@@ -90,7 +106,7 @@ input:focus {
 /* --------------- ícones */
 .icon-shopping-cart::before {
    content: "";
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/cart.svg) center no-repeat;
+   background: url({{PATH}}cart.svg) center no-repeat;
    background-size: 100%;
    width: 24px;
    height: 24px;
@@ -98,7 +114,7 @@ input:focus {
 
 .icon-user::before {
    content: "";
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/user.svg) center no-repeat;
+   background: url({{PATH}}user.svg) center no-repeat;
    background-size: 100%;
    width: 24px;
    height: 24px;
@@ -106,7 +122,7 @@ input:focus {
 
 .icon-search::before {
    content: "";
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/search.svg) center no-repeat;
+   background: url({{PATH}}search.svg) center no-repeat;
    background-size: 100%;
    width: 24px;
    height: 24px;
@@ -185,6 +201,7 @@ input:focus {
    font-size: 12px;
    font-weight: 600;
    margin: 0;
+   border-radius: 999px;
 }
 
 .logo a {
@@ -211,6 +228,8 @@ input:focus {
 .menu.superior .nivel-um li strong {
    color: var(--black);
    padding: 5px 0;
+   font-size: 14px;
+   font-weight: 600;
 }
 
 #cabecalho > .conteiner > .row-fluid > .span3 {
@@ -299,8 +318,14 @@ span.bn-t-title {
 }
 
 .secao-banners .conteiner {
-   padding: 16px;
-   max-width: 1700px;
+   padding: 32px 32px 0;
+   max-width: 1500px;
+   box-sizing: border-box;
+}
+
+#cabecalho .conteiner {
+   padding: 10px 32px;
+   box-sizing: border-box;
 }
 
 .banner .flex-control-paging li a {
@@ -325,7 +350,7 @@ span.bn-t-title {
    left: 0;
    opacity: 1;
    margin: 0;
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/chevron-left.svg) center no-repeat;
+   background: url({{PATH}}chevron-left.svg) center no-repeat;
    width: 40px;
    height: 40px;
    background-color: var(--brand-color);
@@ -336,7 +361,7 @@ span.bn-t-title {
    right: 0;
    position: relative;
    margin: 0;
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/chevron-right.svg) center no-repeat;
+   background: url({{PATH}}chevron-right.svg) center no-repeat;
    width: 40px;
    height: 40px;
    background-color: var(--brand-color);
@@ -386,6 +411,12 @@ span.bn-t-title {
 .mini-banner .modulo.span4 {
    width: 100%;
    margin: 0;
+   position: relative;
+}
+
+.sem-banner .caixa-vazia {
+   width: 100%;
+   box-sizing: border-box;
 }
 
 .mini-banner {
@@ -443,22 +474,15 @@ span.bn-t-title {
 }
 
 .listagem .titulo-categoria {
-   font-size: 28px;
+   font-size: 24px;
    background: none !important;
    padding: 0 !important;
    display: flex;
    flex-direction: column;
-   align-items: flex-start;
+   align-items: center;
    justify-content: center;
    border: 0;
    margin: 48px 0 32px !important;
-}
-
-.listagem .vitrine-lancamento:after {
-   content: "Confira o que há de novo no mundo dos games.";
-   display: block;
-   font-size: 16px;
-   color: var(--black);
 }
 
 #listagemProdutos {
@@ -554,7 +578,7 @@ span.bn-t-title {
 
 .listagem .acoes-produto .botao-comprar i:before {
    content: "";
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/add_shopping_cart.svg) center no-repeat;
+   background: url({{PATH}}add_shopping_cart.svg) center no-repeat;
    background-size: 100%;
 }
 
@@ -584,6 +608,7 @@ span.bn-t-title {
    align-items: center;
    justify-content: center;
    background: rgba(0,0,0,.05);
+   border-radius: 8px;
 }
 
 .c-slide .slick-track {
@@ -619,7 +644,7 @@ span.bn-t-title {
    content: "";
    width: 24px;
    height: 24px;
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/chevron-right.svg);
+   background: url({{PATH}}chevron-right.svg);
    display: block;
 }
 
@@ -627,7 +652,7 @@ span.bn-t-title {
    content: "";
    width: 24px;
    height: 24px;
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/chevron-left.svg);
+   background: url({{PATH}}chevron-left.svg);
    display: block;
 }
 
@@ -640,7 +665,7 @@ span.bn-t-title {
 }
 
 .c-slide-title {
-   font-size: 28px;
+   font-size: 24px;
    font-weight: bold;
    margin: 0;
 }
@@ -650,6 +675,7 @@ span.bn-t-title {
    flex-direction: column;
    gap: 0;
    margin: 48px 0 32px !important;
+   text-align: center;
 }
 
 .c-slide-subtitle {
@@ -698,6 +724,7 @@ span.bn-t-title {
    padding: 12px 10px;
    box-sizing: border-box;
    margin: 0;
+   border-radius: 6px;
 }
 
 .atributos ul li a * {
@@ -832,7 +859,8 @@ span.bn-t-title {
 }
 
 #rodape .institucional .conteiner {
-	padding: 48px 56px;
+	padding: 32px;
+   box-sizing: border-box;
 }
 
 
@@ -877,9 +905,12 @@ span.bn-t-title {
 }
 
 #rodape>div:last-child {
-    background: var(--white)!important;
-    border: 0!Important;
-    padding: 48px 48px 32px!important;
+   background: var(--white) !important;
+   border: 0!Important;
+   padding: 32px !important;
+   max-width: 1500px;
+   margin: 0 auto;
+   box-sizing: border-box;
 }
 
 #rodape>div:last-child .row-fluid {
@@ -917,7 +948,10 @@ span.bn-t-title {
 }
 
 #rodape .pagamento-selos {
-    padding: 48px;
+   padding: 32px;
+   margin: 0 auto;
+   max-width: 1500px;
+   box-sizing: border-box;
 }
 
 .span4.pagamento, .span4.selos {
@@ -933,7 +967,8 @@ button.whatsapp-btn {
     border: 1px solid var(--brand-color);
     padding: 12px 32px;
     margin-top: 10px;
-   color: var(--black)
+   color: var(--black);
+   border-radius: 6px;
 }
 
 button.whatsapp-btn i {
@@ -1105,7 +1140,7 @@ ul.whatsapp-dropdown-menu li {
 
 .icon-instagram::before {
    content: "";
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/instagram.svg) center no-repeat;
+   background: url({{PATH}}instagram.svg) center no-repeat;
    width: 16px;
    height: 16px;
    background-size: 100%;
@@ -1222,7 +1257,7 @@ div#modal-pagamento.ativo {
    content: "";
    width: 20px;
    height: 20px;
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/check.svg )center no-repeat;
+   background: url({{PATH}}check.svg )center no-repeat;
 }
 
 #formCalcularCep .btn {
@@ -1358,7 +1393,7 @@ div#modal-pagamento.ativo {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/chevron-down.svg)
+	background: url({{PATH}}chevron-down.svg)
 		95% no-repeat;
 	padding: 0 20px;
 }
@@ -1397,7 +1432,7 @@ div#modal-pagamento.ativo {
 }
 
 .compre-junto__produto--grade::before {
-    background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/add.svg) center no-repeat;
+    background: url({{PATH}}add.svg) center no-repeat;
     background-color: #fff;
     width: 40px;
     height: 40px;
@@ -1598,7 +1633,7 @@ background: var(--white);
       content: '';
       width: 20px;
       height: 20px;
-      background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/filter_alt.svg)
+      background: url({{PATH}}filter_alt.svg)
          center no-repeat;
       background-size: 100%;
       margin-left: 10px;
@@ -1672,7 +1707,7 @@ background: var(--white);
       content: '';
       width: 20px;
       height: 20px;
-      background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/close.svg)
+      background: url({{PATH}}close.svg)
          center no-repeat;
       background-size: 100%;
       display: block;
@@ -2144,6 +2179,10 @@ div#exibirFormasPagamento .btn.btn-small {
     display: none;
 }
 
+#barraNewsletter .componente .botao {
+   padding: 20px;
+}
+
 #barraNewsletter .componente div.newsletter-cadastro {
     display: flex;
     flex: 1;
@@ -2151,7 +2190,7 @@ div#exibirFormasPagamento .btn.btn-small {
 }
 
 #barraNewsletter.posicao-rodape .componente .interno {
-    padding: 32px 48px;
+    padding: 32px;
 }
 
 #barraNewsletter .componente input[type="text"] {
@@ -2211,6 +2250,7 @@ div#exibirFormasPagamento .btn.btn-small {
    align-items: center;
    justify-content: center;
    opacity: 1;
+   border-radius: 6px;
 }
 
 .listagem .flex-direction-nav .flex-next {
@@ -2221,7 +2261,7 @@ div#exibirFormasPagamento .btn.btn-small {
    content: "";
    width: 24px;
    height: 24px;
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/chevron-right.svg);
+   background: url({{PATH}}chevron-right.svg);
    display: block;
 }
 
@@ -2233,7 +2273,7 @@ div#exibirFormasPagamento .btn.btn-small {
    content: "";
    width: 24px;
    height: 24px;
-   background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/chevron-left.svg);
+   background: url({{PATH}}chevron-left.svg);
    display: block;
 }
 
@@ -2368,6 +2408,41 @@ div#exibirFormasPagamento .btn.btn-small {
 }
 
 @media screen and (max-width: 768px) {
+
+   div#modalFiltros > .modal-dialog {
+      width: 360px;
+  }
+  
+  #modalFiltros .modal-content {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+  }
+
+   #cabecalho .conteiner {
+      padding: 16px;
+   }
+
+   .secao-banners .conteiner {
+      padding: 16px;
+  }
+
+  .t-bar {
+   padding: 16px 0!important;
+}
+
+   .t-bar {
+      margin: 0;
+  }
+
+   .t-item {
+      width: fit-content!important;
+   }
+
+   .c-item a {
+      height: 100px;
+      border-radius: 8px;
+   }
 
    .pagina-inicial .listagem .listagem-linha {
       width: 50%!important;
@@ -2532,7 +2607,7 @@ div#exibirFormasPagamento .btn.btn-small {
 
 .conteudo-topo > .inferior {
    position: fixed;
-   top: 81px;
+   top: 129px;
    background: var(--white);
    width: 100%;
    left: 0;
@@ -2579,6 +2654,11 @@ a.atalho-menu {
 
 .slick-arrow.slick-prev {
    left: 0px;   
+}
+
+.c-slide .slick-arrow.slick-next, 
+.c-slide .slick-arrow.slick-prev {
+   display: none!important;
 }
 
 .banner .flex-control-nav {
@@ -2792,7 +2872,9 @@ a.atalho-menu {
    right: 0;
    z-index: 9999999999999;
    padding: 40px;
-   margin: 0;
+   margin: 20px auto;
+   box-sizing: border-box;
+   width: 90%;
 }
 
 .finalizar-compra .span12 a.botao {
@@ -2906,7 +2988,7 @@ a.atalho-menu {
 
 .compre-junto__produto--principal::after {
 	color: #607081;
-	background: url(https://cdn.awsli.com.br/2942/2942234/arquivos/add.svg) center
+	background: url({{PATH}}add.svg) center
 		no-repeat;
 	background-color: #fff;
 	width: 40px;
@@ -2988,7 +3070,7 @@ a.atalho-menu {
 
 .links-rodape ul,
 .atendimento-rodape ul,
-.visible-phone ul {
+#rodape .visible-phone ul {
  display: none;
 }
 
@@ -3062,11 +3144,19 @@ a.atalho-menu {
    flex-direction: column;
 }
 
+.listagem > ul:not(.produtos-carrossel) .listagem-linha {
+   width: 100% !important;
+}
+
 }
 
 
 
 @media screen and (min-width: 768px) {
+
+   .logo a img {
+      right: auto;
+   }
 
    .identificacao .control-group input {
       box-shadow: none;
@@ -3083,114 +3173,21 @@ a.atalho-menu {
    .listagem .listagem-item:hover {
       background: #fff;
    }
-   
+/*    
    .listagem .listagem-item:hover .info-produto * {
       color: #000!important;
       font-weight: 500;
-   }
+   } */
 
-}
-
-
-#listagemProdutos section.depoimentos-video .slick-track {
-	width: max-content!important;	
-}
-
-.depoimentos-video .container {
-    margin: 0;
-    width: 100%;
-}
-
-.depoimento-item {
-  padding: 0 8px;
-}
-
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  overflow: hidden;
-  border-radius: 10px;
-  background: #111;
-}
-
-.video-wrapper iframe {
-  width: 100%;
-  height: 100%;
-}
-
-/* setas */
-.slider-depoimentos .slick-prev,
-.slider-depoimentos .slick-next {
-  width: 44px;
-  height: 44px;
-  background: var(--white);
-  border: 1px solid var(--brand-color);
-  z-index: 5;
-}
-
-.slider-depoimentos {
-    width: 100%;
-}
-
-section.depoimentos-video {
-    width: 100%;
-}
-
-.depoimentos-video h2 {
-    font-size: 28px;
-}
-
-.depoimentos-video p {
-    font-size: 16px;
-    margin-bottom: 32px;
-}
-
-
-/* Badges nos produtos */
-.listagem-item .imagem-produto:after {
-   content: "";
-   display: block;
-   z-index: 1;
-   position: absolute;
-   bottom: 0;
-   width: 100%;
-   text-align: center;
-   height: 38px;
-   background: rgba(255, 255, 255, 0.7);
-   backdrop-filter: blur(5px);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-size: 14px;
-   text-transform: uppercase;
-   color: var(--black);
-   font-weight: 600;
-}
-
-.listagem-item.prod-cat-24033243 .imagem-produto:after {
-   content: "Gift Cards";  
-}
-
-.listagem-item.prod-cat-24033240 .imagem-produto:after {
-  content: "PlayStation";
-}
-
-
-.listagem-item.prod-cat-24033241 .imagem-produto:after {
-  content: "Xbox";
-}
-
-.listagem-item.prod-cat-24033242 .imagem-produto:after {
-  content: "Nintendo";
 }
 
 /* FAQ */
 
 .faq-container {
-	padding: 0 48px;
+	padding: 0 32px;
    max-width: 1500px;
    margin: 0 auto;
+   box-sizing: border-box;
 }
 
 section.faq-section {
@@ -3203,7 +3200,7 @@ section.faq-section {
 }
 
 .faq-container h2 {
-	font-size: 28px;
+	font-size: 24px;
 	margin: 0;
 }
 
@@ -3212,11 +3209,14 @@ section.faq-section {
 }
 
 .faq-item {
-	display: flex;
-	flex-direction: column;
-	padding: 40px 0;
-	gap: 24px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+   display: flex;
+   flex-direction: column;
+   padding: 24px;
+   gap: 24px;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+   background: rgba(0, 0, 0, .05);
+   border-radius: 10px;
+   margin-bottom: 14px;
 }
 
 .faq-pergunta {
@@ -3283,12 +3283,13 @@ section.faq-section {
 }
 
 .beneficios-container {
-	padding: 48px;
+	padding: 32px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
    max-width: 1500px;
    margin: 0 auto;
+   box-sizing: border-box;
 }
 
 .beneficio-item .beneficio-texto strong {
@@ -3339,15 +3340,17 @@ section.faq-section {
 }
 
 .categoria-mais > a {
-	font-size: 16px;
-	color: var(--black)!important;
+   font-size: 14px;
+   color: var(--black) !important;
+   font-weight: 600;
 }
 
-ul.submenu-mais {
-	position: absolute;
-	background: var(--white);
-	top: 60px;
-	display: none;
+.submenu-mais {
+   position: absolute;
+   background: var(--white);
+   top: 60px;
+   display: none;
+   box-shadow: 0 15px 30px rgba(0, 0, 0, .3);
 }
 
 li.categoria-mais {
@@ -3456,18 +3459,23 @@ div#_trustvox_colt .review-card {
     border-radius: 0;
 }
 
-
 /* TARJA AUTOMATICA */
 
 .t-bar {
    max-width: 1500px;
    padding: 24px;
-   margin: 20px auto 0;
+   margin: 0 auto;
+   box-sizing: border-box;
 }
 
 .t-item {
-   display: flex!important;
+   display: flex !important;
    gap: 10px;
+   align-items: center;
+   padding: 16px;
+   background: rgba(0, 0, 0, .05);
+   margin: 0 5px;
+   border-radius: 10px;
 }
 
 .t-item .t-text {
@@ -3476,11 +3484,11 @@ div#_trustvox_colt .review-card {
 }
 
 .t-item .t-text strong {
-   font-size: 18px;
+   font-size: 16px;
 }
 
 .t-item .t-text span {
-   font-size: 14px;
+   font-size: 12px;
 }
 
 .t-slide img {max-width: 24px;max-height: 24px;}
@@ -3511,4 +3519,146 @@ div#_trustvox_colt .review-card {
    font-weight: 600;
    color: #000;
    margin-top: 20px!important;
+}
+
+.span12.banner.tarja {
+   display: flex;
+   justify-content: center;
+   margin: 0;
+}
+
+.span12.banner.tarja > a {
+   flex: 1;
+   margin: 0 !important;
+}
+
+.span12.banner.tarja > a picture, .span12.banner.tarja > a img {
+   width: 100%;
+   border-radius: 8px;
+}
+
+.tarja-img {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: rgba(0, 0, 0, .05);
+   width: 48px;
+   height: 48px;
+   border-radius: 8px;
+   flex: none;
+}
+
+.alert-bar {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 36px;
+   background: var(--brand-color);
+}
+
+.alert-bar span {
+   color: var(--white);
+   font-weight: 500;
+   font-size: 14px;
+}
+
+.banner.cheio+.row-fluid {
+   margin: 0;
+}
+
+.mini-banner .flexslider .slides img {
+   border-radius: 8px;
+}
+
+
+a.pixel-logo:before {
+   content: "Desenvolvido por:";
+}
+
+#rodape > div:last-child .row-fluid > div:last-child::before {
+   content: "Conheça a plataforma:";
+}
+
+#rodape > div:last-child .row-fluid > div:last-child {
+   display: flex;
+   flex-direction: column;
+}
+
+/* GUIA DE MEDIDAS */
+
+.btn-medidas {
+   display: flex;
+   margin: 0 0 20px;
+   padding: 0 !important;
+   background: transparent;
+   color: #000;
+   border-radius: 0px;
+   cursor: pointer;
+   text-decoration: underline;
+   font-size: 15px;
+}
+
+.modal-medidas {
+   display: none;
+   position: fixed;
+   z-index: 9999999;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0,0,0,0.6);
+   align-items: center;
+   justify-content: center;
+}
+
+.modal-content {
+   background: #fff;
+   margin: auto;
+   padding: 40px;
+   width: 80%;
+   max-width: 800px;
+   border-radius: 0;
+   position: relative;
+   position: absolute;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   top: 0;
+   height: fit-content;
+}
+
+.close-modal {
+   position: absolute;
+   right: 25px;
+   top: 20px;
+   font-size: 40px;
+   cursor: pointer;
+}
+
+.tabela-medidas {
+   width: 100%;
+   border-collapse: collapse;
+   margin-top: 20px;
+}
+
+.tabela-medidas th {
+   background: #000;
+   color: #fff;
+       padding: 6px;
+   font-size: 11px;
+}
+
+.tabela-medidas td {
+   padding: 6px;
+   text-align: center;
+}
+
+.linha-par {
+   background: #f2f2f2;
+}
+
+#modal-medidas h2 {
+   font-size: 24.5px;
+   font-weight: 700;
+   color: #000;
 }

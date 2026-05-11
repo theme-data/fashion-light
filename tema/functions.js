@@ -117,9 +117,6 @@ $(document).ready(function(){
           <h2 class="c-slide-title">
               Navegue por categoria
           </h2>
-          <p class="c-slide-subtitle">
-              Escolha abaixo uma categoria para explorar nossos jogos
-          </p>
       </div>
       <ul class="c-slide">
           ${categoriaLis}
@@ -138,7 +135,7 @@ $(document).ready(function(){
           {
               breakpoint: 768,
               settings: {
-                  slidesToShow: 2
+                  slidesToShow: 4
               }
           }
       ]
@@ -216,7 +213,7 @@ $(document).ready(function(){
     $('.ordenar-listagem .row-fluid > .span6').removeClass('span6');
     
     
-    $(document).ready(function () {
+  $(document).ready(function () {
   
       /* ======================================================
          1. CRIA BOTÃO FILTRAR
@@ -286,89 +283,7 @@ if (CONFIG.bannerVitrine) {
 }
 
   $('#barraNewsletter .componente .texto-newsletter').prepend($('#barraNewsletter .componente .titulo'));
-  
-  $(function () {
-    /* =========================
-       🎬 VIDEOS EDITÁVEIS
-    ==========================*/
-    const videosShorts = CONFIG.videosShorts || [];
-  
-    /* =========================
-       🧱 MONTA HTML DINÂMICO
-    ==========================*/
-  
-    let slides = '';
-  
-    videosShorts.forEach((id) => {
-      slides += `
-        <div class="depoimento-item">
-          <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/${id}?enablejsapi=1&controls=0&rel=0&modestbranding=1&playsinline=1"
-              frameborder="0"
-              allow="autoplay; encrypted-media"
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-      `;
-    });
-  
-    const htmlSlider = `
-      <section class="depoimentos-video">
-        <div class="container">
-          <h2>Depoimentos em vídeo</h2>
-          <p>Veja o que nossos clientes estão falando dos produtos.</p>
-  
-          <div class="slider-depoimentos">
-            ${slides}
-          </div>
-        </div>
-      </section>
-    `;
-  
-    /* =========================
-       📍 INSERE NO DOM
-    ==========================*/
-  
-    $('.pagina-inicial .vitrine-lancamento+ul').after(htmlSlider);
-  
-    /* =========================
-       🎯 INICIA SLICK
-    ==========================*/
-  
-    $('.slider-depoimentos').slick({
-      slidesToShow: 5,
-      slidesToScroll: 1,
-      arrows: true,
-      dots: false,
-      infinite: true,
-      adaptiveHeight: false,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: { slidesToShow: 2 },
-        },
-      ],
-    });
-  
-    /* =========================
-       🧠 PAUSA VÍDEOS AO TROCAR
-    ==========================*/
-  
-    $('.slider-depoimentos').on('beforeChange', function () {
-      $('.slider-depoimentos iframe').each(function () {
-        this.contentWindow.postMessage(
-          '{"event":"command","func":"pauseVideo","args":""}',
-          '*'
-        );
-      });
-    });
-  });
 
-  
-
-  
   
   // FAQ
   
@@ -708,7 +623,9 @@ if (CONFIG.bannerVitrine) {
   var tarjaItems = tarja.map(function(t){
     return `
       <div class="t-item">
-        <img src="${t.icon}" alt="${t.titulo}">
+        <div class="tarja-img">
+          <img src="${t.icon}" alt="${t.titulo}">
+        </div>
         <div class="t-text">
           <strong>${t.titulo}</strong>
           <span>${t.texto}</span>
@@ -744,6 +661,16 @@ if (CONFIG.bannerVitrine) {
     ]
   });
 
+  // MOVE TARJA
+
+
+  var vitrineTarja = CONFIG.vitrineTarja || {};
+
+  if (vitrineTarja.idVitrine) {
+    $(`.pagina-inicial .vitrine-${vitrineTarja.idVitrine}`)
+      .before($('.banner.tarja'));
+  }
+
   //ALERTA DIGITAL 
 
   if (typeof CONFIG === "undefined") return;
@@ -762,6 +689,165 @@ if (CONFIG.bannerVitrine) {
       </div>
     `);
   }
+
+  var textoAlertBar = CONFIG.alertBar || {};
+
+  if (textoAlertBar.mensagem) {
+    $('.barra-inicial')
+      .replaceWith(`
+        <div class="alert-bar">
+          <span>${textoAlertBar.mensagem}</span>
+        </div>
+      `);
+  }
+
+  var vitrineDestaque = CONFIG.vitrineDestaque || {};
+  var id = vitrineDestaque.idVitrine;
+  
+  if (id) {
+    var css = `
+      .vitrine-${id} + ul .listagem-linha li .listagem-item {
+        display: flex;
+      }
+  
+      .vitrine-${id} + ul .listagem-linha > div > ul {
+        display: grid;
+        width: 100% !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+  
+      .vitrine-${id} + ul .listagem-linha {
+        width: 100% !important;
+      }
+  
+      .vitrine-${id} + ul .listagem-linha li {
+        width: 100% !important;
+        border-radius: 8px;
+        border: 1px solid #d8d8d8 !important;
+        box-sizing: border-box;
+      }
+  
+      .vitrine-${id} + ul .listagem-linha li .listagem-item .imagem-produto {
+        max-width: 120px;
+      }
+  
+      .vitrine-${id} + ul .listagem-linha li .listagem-item .info-produto {
+        width: 100%;
+      }
+  
+      .vitrine-${id} + ul .flex-direction-nav {
+        display: none;
+      }
+  
+      .vitrine-${id} + ul .listagem-linha > div > ul .bandeiras-produto {
+        display: none;
+      }
+
+      .vitrine-${id} + ul .flex-direction-nav {
+        display: none!important;
+      }
+  
+      @media screen and (max-width: 768px) {
+        .pagina-inicial .vitrine-${id} + ul .listagem-linha {
+          width: 100% !important;
+        }
+  
+        .vitrine-${id} + ul .listagem-linha > div > ul {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+  
+    $('<style>')
+      .prop('type', 'text/css')
+      .html(css)
+      .appendTo('head');
+  }
+
+  const MEDIDAS = CONFIG.guiaMedidas || {};
+
+  function initTabelaMedidas() {
+
+      if ($("#btn-tabela-medidas").length) return;
+
+      if ($(".produto .principal .atributos").length) {
+
+          $(".produto .principal .atributos").before(`
+              <button id="btn-tabela-medidas" class="btn-medidas">
+                  ${MEDIDAS.botaoTexto || "Guia de medidas"}
+              </button>
+          `);
+
+          if (!$("#modal-medidas").length) {
+              $("body").append(`
+                  <div id="modal-medidas" class="modal-medidas">
+                      <div class="modal-content">
+                          <span class="close-modal">&times;</span>
+                          <h2>${MEDIDAS.titulo || "Tabela de Medidas"}</h2>
+
+                          <table class="tabela-medidas">
+                              <thead>
+                                  <tr>
+                                      ${gerarCabecalho()}
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  ${gerarTabela()}
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              `);
+          }
+      }
+  }
+
+  function gerarCabecalho() {
+      const colunas = MEDIDAS.colunas || [];
+      return colunas.map(col => `<th>${col}</th>`).join("");
+  }
+
+  function gerarTabela() {
+      const dados = MEDIDAS.dados || [];
+
+      let html = "";
+
+      dados.forEach((linha, index) => {
+          html += `
+              <tr class="${index % 2 === 0 ? 'linha-par' : ''}">
+                  ${linha.map(item => `<td>${item}</td>`).join("")}
+              </tr>
+          `;
+      });
+
+      return html;
+  }
+
+  initTabelaMedidas();
+
+  const observer = new MutationObserver(function () {
+      initTabelaMedidas();
+  });
+
+  observer.observe(document.body, {
+      childList: true,
+      subtree: true
+  });
+
+  $(document).on("click", "#btn-tabela-medidas", function () {
+      $("#modal-medidas").fadeIn();
+  });
+
+  $(document).on("click", ".close-modal", function () {
+      $("#modal-medidas").fadeOut();
+  });
+
+  $(window).on("click", function (e) {
+      if ($(e.target).is("#modal-medidas")) {
+          $("#modal-medidas").fadeOut();
+      }
+  });
 
   
 });
