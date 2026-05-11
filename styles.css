@@ -66,6 +66,7 @@ html {
 .conteiner {
    max-width: 1500px;
    padding: 0 16px;
+   box-sizing: border-box;
 }
 
 /* Botão */
