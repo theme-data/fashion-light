@@ -2416,6 +2416,16 @@ div#exibirFormasPagamento .btn.btn-small {
 
 @media screen and (max-width: 768px) {
 
+   div#modalFiltros > .modal-dialog {
+      width: 360px;
+  }
+  
+  .modal-content {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+  }
+
    #cabecalho .conteiner {
       padding: 16px;
    }
