@@ -485,13 +485,6 @@ span.bn-t-title {
    margin: 48px 0 32px !important;
 }
 
-.listagem .vitrine-lancamento:after {
-   content: "Confira o que há de novo no mundo dos games.";
-   display: block;
-   font-size: 16px;
-   color: var(--black);
-}
-
 #listagemProdutos {
    padding: 0 32px;
    display: flex;
