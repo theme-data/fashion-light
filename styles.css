@@ -2420,7 +2420,7 @@ div#exibirFormasPagamento .btn.btn-small {
       width: 360px;
   }
   
-  .modal-content {
+  #modalFiltros .modal-content {
       margin: 0;
       padding: 0;
       width: 100%;
