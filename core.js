@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+  $('#rodape img[alt="Logomarca Loja Integrada"]').attr('src','https://cdn.awsli.com.br/2984/2984134/arquivos/logo-li.png');
+
   const CONFIG = window.THEME_CONFIG || {};
 
   // Ajustes gerais  
@@ -86,8 +88,11 @@ $(document).ready(function(){
               <li>${atendimento.horarios?.[2] || ''}</li>
               <li style="margin-top:10px;">
                   <img src="${atendimento.whatsapp?.icon}" alt="${atendimento.whatsapp?.alt}" style="vertical-align:middle; width:20px; margin-right:8px;">
-                  ${atendimento.whatsapp?.number}
+                  <a href="https://wa.me/${atendimento.whatsapp?.number?.replace(/\D/g, '')}" target="_blank" style="color:inherit; text-decoration:none;">
+                      ${atendimento.whatsapp?.number}
+                  </a>
               </li>
+         
               <li style="margin-top:5px;">
                   <img src="${atendimento.email?.icon}" alt="${atendimento.email?.alt}" style="vertical-align:middle; width:20px; margin-right:8px;">
                   <a href="mailto:${atendimento.email?.address}" style="color:inherit; text-decoration:none;">${atendimento.email?.address}</a>
